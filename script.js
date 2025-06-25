@@ -4,8 +4,6 @@
 
 //0
 
-let userScore = 0;
-let computerScore = 0;
 
 function getComputerChoice(){ //returns 0, 1, or 2. (represents RPS)
     let x = Math.floor(Math.random()*3);
@@ -24,7 +22,29 @@ function getHumanChoice(){
     return capitalized;
 }
 
-function playRound(){
+function playGame(){
+    //score variables
+    let userScore = 0;
+    let computerScore = 0;
+
+    //5 rounds
+    for(let i = 0; i<5; i++){
+        console.log(`Round ${i}:`);
+        playRound();
+        console.log(`Score\nUser: ${userScore}\nComputer: ${computerScore}\n`);
+    }
+    if(userScore == computerScore){
+        while(userScore == computerScore){
+            console.log("We are at a draw! TIEBREAKER!");
+            playRound();
+        }
+    }else if(userScore>computerScore) {
+        console.log("User wins the game!");
+    }else{
+        console.log("Computer wins the game!");
+    }
+
+    function playRound(){
     let userChoice = getHumanChoice();
     console.log("The user chose " + userChoice.toLowerCase() + "!");
     let computerChoice = getComputerChoice();
@@ -77,17 +97,5 @@ function playRound(){
             default:
         }
     }
-}
-
-function playGame(){
-    for(let i = 0; i<5; i++){
-        console.log(`Round ${i}:`);
-        playRound();
-        console.log(`Score\nUser: ${userScore}\nComputer: ${computerScore}\n`);
-    }
-    if (userScore>computerScore){
-        console.log("User wins the game!")
-    }else{
-        console.log("Computer wins the game!");
     }
 }
