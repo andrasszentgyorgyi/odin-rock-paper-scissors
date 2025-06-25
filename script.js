@@ -1,10 +1,3 @@
-//take input from user (rock, paper, or scissors)
-//randomly generate number from 1-3 to represent computer's choice
-//decide who won and print it
-
-//0
-
-
 function getComputerChoice(){ //returns 0, 1, or 2. (represents RPS)
     let x = Math.floor(Math.random()*3);
     if (x==0){
@@ -27,13 +20,13 @@ function playGame(){
     let userScore = 0;
     let computerScore = 0;
 
-    //5 rounds
+    //play 5 rounds
     for(let i = 0; i<5; i++){
         console.log(`Round ${i}:`);
         playRound();
         console.log(`Score\nUser: ${userScore}\nComputer: ${computerScore}\n`);
     }
-    if(userScore == computerScore){
+    if(userScore == computerScore){ //tiebreaker for when score is equal after 5 rounds.
         while(userScore == computerScore){
             console.log("We are at a draw! TIEBREAKER!");
             playRound();
@@ -44,6 +37,7 @@ function playGame(){
         console.log("Computer wins the game!");
     }
 
+    //logic for one round
     function playRound(){
     let userChoice = getHumanChoice();
     console.log("The user chose " + userChoice.toLowerCase() + "!");
