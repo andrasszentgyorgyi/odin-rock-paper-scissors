@@ -95,11 +95,13 @@ function playRound(playerSelection) {
             default:
         }
     }
+    updateScoreboard();
 }
 
 function updateScoreboard(){
     userScoreElement.textContent = `User: ${userScore}`;
     computerScoreElement.textContent = `Computer: ${computerScore}`;
+    checkForWin();
 }
 
 function checkForWin(){
@@ -108,11 +110,13 @@ function checkForWin(){
         userScore = 0;
         computerScore = 0;
         updateScoreboard();
-    } else {
+    } else if (computerScore == 5){
         alert("Game over! Computer wins!");
         userScore = 0;
         computerScore = 0;
         updateScoreboard();
+    } else {
+
     }
 }
 
