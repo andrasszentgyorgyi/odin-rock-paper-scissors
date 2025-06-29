@@ -1,95 +1,141 @@
-function getComputerChoice(){ //returns 0, 1, or 2. (represents RPS)
-    let x = Math.floor(Math.random()*3);
-    if (x==0){
+let buttons = document.querySelector("#buttons");
+let results = document.querySelector("#results");
+
+buttons.addEventListener("click", (event)=>{
+    let target = event.target;
+    switch(target.id){
+        case "btnRock":
+            playRound("ROCK");
+            break;
+        case "btnPaper":
+            playRound("PAPER");
+            break;
+        case "btnScissors":
+            playRound("SCISSORS");
+            break;
+    }
+});
+
+let textOutputElement = document.createElement("h3");
+results.appendChild(textOutputElement);
+let userScoreElement = document.querySelector("#userScore");
+let computerScoreElement = document.querySelector("#computerScore");
+
+
+let userScore = 0;
+let computerScore = 0;
+
+function getComputerChoice() { //returns 0, 1, or 2. (represents RPS)
+    let x = Math.floor(Math.random() * 3);
+    if (x == 0) {
         return "ROCK";
-    } else if (x==1){
+    } else if (x == 1) {
         return "PAPER";
     } else {
         return "SCISSORS";
     }
 }
 
-function getHumanChoice(){
+function getHumanChoice() {
     let input = prompt("Please enter rock, paper, or scissors!")
     let capitalized = input.toUpperCase();
     return capitalized;
 }
 
-function playGame(){
-    //score variables
-    let userScore = 0;
-    let computerScore = 0;
-
-    //play 5 rounds
-    for(let i = 0; i<5; i++){
-        console.log(`Round ${i}:`);
-        playRound();
-        console.log(`Score\nUser: ${userScore}\nComputer: ${computerScore}\n`);
-    }
-    if(userScore == computerScore){ //tiebreaker for when score is equal after 5 rounds.
-        while(userScore == computerScore){
-            console.log("We are at a draw! TIEBREAKER!");
-            playRound();
-        }
-    }else if(userScore>computerScore) {
-        console.log("User wins the game!");
-    }else{
-        console.log("Computer wins the game!");
-    }
-
-    //logic for one round
-    function playRound(){
-    let userChoice = getHumanChoice();
-    console.log("The user chose " + userChoice.toLowerCase() + "!");
+function playRound(playerSelection) {
+    textOutputElement.textContent = "";
+    textOutputElement.textContent += "The user chose " + playerSelection.toLowerCase() + "!\n";
     let computerChoice = getComputerChoice();
-    console.log("The computer chose " + computerChoice.toLowerCase() + "!");
-    if (userChoice == "ROCK"){
-        switch(computerChoice){
+    textOutputElement.textContent += "The computer chose " + computerChoice.toLowerCase() + "!\n";
+    if (playerSelection == "ROCK") {
+        switch (computerChoice) {
             case "ROCK":
-                console.log("Draw! Both players picked rock.");
+                textOutputElement += "Draw! Both players picked rock.\n";
                 break;
             case "PAPER":
-                console.log("Computer wins!");
+                textOutputElement +="Computer wins!\n";
                 computerScore++;
                 break;
             case "SCISSORS":
-                console.log("User wins!");
+                textOutputElement += "User wins!\n";
                 userScore++;
                 break;
             default:
         }
 
-    } else if (userChoice == "PAPER"){
-        switch(computerChoice){
+    } else if (playerSelection == "PAPER") {
+        switch (computerChoice) {
             case "ROCK":
-                console.log("User wins!")
+                textOutputElement +="User wins!\n";
                 userScore++;
                 break;
             case "PAPER":
-                console.log("Draw! Both players picked paper.");
+                textOutputElement +="Draw! Both players picked paper.\n";
                 break;
             case "SCISSORS":
-                console.log("Computer wins!");
+                textOutputElement +="Computer wins!\n";
                 computerScore++;
                 break;
             default:
         }
 
     } else {
-        switch(computerChoice){
+        switch (computerChoice) {
             case "ROCK":
-                console.log("Computer wins!")
+                textOutputElement +="Computer wins!\n";
                 computerScore++;
                 break;
             case "PAPER":
-                console.log("User wins!")
+                textOutputElement +="User wins!\n";
                 userScore++;
                 break;
             case "SCISSORS":
-                console.log("Draw! Both players picked scissors.");
+                textOutputElement +="Draw! Both players picked scissors.\n";
                 break;
             default:
         }
     }
+}
+
+function updateScoreboard(){
+    userScoreElement.textContent = `User: ${userScore}`;
+    computerScoreElement.textContent = `Computer: ${computerScore}`;
+}
+
+function checkForWin(){
+    if (userScore == 5){
+        alert("Game over! User wins!");
+        userScore = 0;
+        computerScore = 0;
+        updateScoreboard();
+    } else {
+        alert("Game over! Computer wins!");
+        userScore = 0;
+        computerScore = 0;
+        updateScoreboard();
     }
+}
+
+function playGame() {
+    //score variables
+    let userScore = 0;
+    let computerScore = 0;
+
+    //play 5 rounds
+    for (let i = 0; i < 5; i++) {
+        console.log(`Round ${i}:`);
+        playRound();
+        console.log(`Score\nUser: ${userScore}\nComputer: ${computerScore}\n`);
+    }
+    if (userScore == computerScore) { //tiebreaker for when score is equal after 5 rounds.
+        while (userScore == computerScore) {
+            console.log("We are at a draw! TIEBREAKER!");
+            playRound();
+        }
+    } else if (userScore > computerScore) {
+        console.log("User wins the game!");
+    } else {
+        console.log("Computer wins the game!");
+    }
+
 }

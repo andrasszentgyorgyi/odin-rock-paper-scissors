@@ -1,0 +1,66 @@
+
+body{
+    padding:0;
+    margin:0;
+    border:0;
+    background-color: #e1b36c;
+}
+
+#title{
+    text-align: center;
+    margin:0;
+    border:2px solid white;
+    width:99.5%;
+
+}
+
+h2,h4{
+    margin:15px;
+}
+.scoreboard {
+    display:flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: red;
+    padding:0;
+    margin:0;
+}
+
+#userScore, #computerScore{
+    border:2px solid white;
+}
+
+.scores {
+    display:flex;
+    justify-content: space-evenly;
+    width: 99.5%;
+    gap:50px;
+    border:2px solid white;
+}
+
+
+
+#buttons{
+    padding:20px;
+    display:flex;
+    justify-content: space-evenly;
+}
+
+button{
+    width:100px;
+    height:50px;
+    border-radius: 5px;
+    border: 2px solid white;
+    border-color:white;
+    background-color: red;
+    color:black;
+}
+
+#results{
+    border: 2px solid white;
+    display:flex;
+    justify-content: center;
+    align-items: center;
+    margin: 20px 100px;
+    height:350px;
+}
