@@ -1,33 +1,51 @@
+*{
+  font-family: "Freckle Face", system-ui;
+  font-weight: 400;
+  font-style: normal;
+}
 
 body{
     padding:0;
     margin:0;
     border:0;
-    background-color: #e1b36c;
+    background-color: #819A91;
 }
 
 #title{
     text-align: center;
     margin:0;
-    border:2px solid white;
     width:99.5%;
+    font-family: "Knewave", system-ui;
+    font-weight: 400;
+    font-style: normal;
+}
 
+#rules{
+    font-family: "Knewave", system-ui;
+    font-weight: 400;
+    font-style: normal;
 }
 
 h2,h4{
     margin:15px;
+    text-align: center;
+    font-weight: 200;
+}
+
+h1{
+    font-weight:100;
 }
 .scoreboard {
     display:flex;
     flex-direction: column;
     align-items: center;
-    background-color: red;
+    justify-content: center;
+    background-color: #A7C1A8;
     padding:0;
     margin:0;
-}
-
-#userScore, #computerScore{
-    border:2px solid white;
+    border:5px solid #D1D8BE;
+    border-radius:5px;
+    height:70px;
 }
 
 .scores {
@@ -35,7 +53,6 @@ h2,h4{
     justify-content: space-evenly;
     width: 99.5%;
     gap:50px;
-    border:2px solid white;
 }
 
 
@@ -47,20 +64,54 @@ h2,h4{
 }
 
 button{
-    width:100px;
-    height:50px;
-    border-radius: 5px;
-    border: 2px solid white;
-    border-color:white;
-    background-color: red;
+    width:200px;
+    height:100px;
+    border-radius: 15px;
+    border: 2px solid #D1D8BE;
+    border-color:#D1D8BE;
+    background-color: #EEEFE0;
     color:black;
+    font-size:36px;
 }
 
 #results{
-    border: 2px solid white;
+    border: 2px solid #D1D8BE;
     display:flex;
     justify-content: center;
     align-items: center;
     margin: 20px 100px;
+    border-radius: 10px;
+    height:50px;
+    background-color: #A7C1A8;
+}
+
+#choices{
+    border: 2px solid #D1D8BE;
+    border-radius: 20px;
+    display:flex;
+    justify-content: space-around;
+    align-items: center;
+    margin: 20px 100px;
     height:350px;
+    background-color: #D1D8BE;
+}
+
+#userChoice{
+    padding:0;
+    border:0;
+    margin:0;
+    text-align: center;
+}
+
+#computerChoice{
+    padding:0;
+    border:0;
+    margin:0;
+    text-align: center;
+}
+
+h1{
+    border:0;
+    padding: 0;
+    margin:0;
 }

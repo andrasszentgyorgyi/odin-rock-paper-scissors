@@ -1,23 +1,33 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Knewave&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Freckle+Face&family=Knewave&display=swap" rel="stylesheet">
 </head>
+
 <body>
     <div class="scoreboard">
-        <h1 id="title">Rock Paper Scissors!</h1>
-        <h2>First to 5 points wins!</h2>
-        <div class="scores">
-            <h4 id="userScore">User:</h4>
-            <h4 id="computerScore">Computer</h4>
+        <h1 id="title">Rock Paper Scissors</h1>
+    </div>
+    <h2 id = "rules">First to 5 points wins!</h2>
+    <div id="choices">
+        <div id="userChoice">
+            <h1 id="userScore">USER: 0</h1>
+        </div>
+        <div id="computerChoice">
+            <h1 id = "computerScore">COMPUTER: 0</h1>
         </div>
     </div>
-    <div id="results">
-        
-    </div>
+    <div id="results"></div>
     <div id="buttons">
         <button id="btnRock">ROCK!</button>
         <button id="btnPaper">PAPER!</button>
@@ -25,4 +35,5 @@
     </div>
     <script src="script.js"></script>
 </body>
+
 </html>

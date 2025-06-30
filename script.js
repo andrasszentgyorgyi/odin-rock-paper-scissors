@@ -1,5 +1,7 @@
 let buttons = document.querySelector("#buttons");
 let results = document.querySelector("#results");
+let userChoiceElement = document.querySelector("#userChoice");
+let computerChoiceElement = document.querySelector("#computerChoice");
 
 buttons.addEventListener("click", (event)=>{
     let target = event.target;
@@ -16,8 +18,13 @@ buttons.addEventListener("click", (event)=>{
     }
 });
 
-let textOutputElement = document.createElement("h3");
+let textOutputElement = document.createElement("h1");
 results.appendChild(textOutputElement);
+let userChoiceOutputElement = document.createElement("h2");
+let computerChoiceOutputElement = document.createElement("h2");
+userChoiceElement.appendChild(userChoiceOutputElement);
+computerChoiceElement.appendChild(computerChoiceOutputElement);
+
 let userScoreElement = document.querySelector("#userScore");
 let computerScoreElement = document.querySelector("#computerScore");
 
@@ -44,20 +51,22 @@ function getHumanChoice() {
 
 function playRound(playerSelection) {
     textOutputElement.textContent = "";
-    textOutputElement.textContent += "The user chose " + playerSelection.toLowerCase() + "!\n";
+    userChoiceOutputElement.textContent = "";
+    computerChoiceOutputElement.textContent = "";
+    userChoiceOutputElement.textContent += "The user chose " + playerSelection.toLowerCase() + "!\r\n";
     let computerChoice = getComputerChoice();
-    textOutputElement.textContent += "The computer chose " + computerChoice.toLowerCase() + "!\n";
+    computerChoiceOutputElement.textContent += "The computer chose " + computerChoice.toLowerCase() + "!\r\n";
     if (playerSelection == "ROCK") {
         switch (computerChoice) {
             case "ROCK":
-                textOutputElement += "Draw! Both players picked rock.\n";
+                textOutputElement.textContent += "Draw! Both players picked rock.\n";
                 break;
             case "PAPER":
-                textOutputElement +="Computer wins!\n";
+                textOutputElement.textContent +="Computer wins.\n";
                 computerScore++;
                 break;
             case "SCISSORS":
-                textOutputElement += "User wins!\n";
+                textOutputElement.textContent += "User wins.\n";
                 userScore++;
                 break;
             default:
@@ -66,14 +75,14 @@ function playRound(playerSelection) {
     } else if (playerSelection == "PAPER") {
         switch (computerChoice) {
             case "ROCK":
-                textOutputElement +="User wins!\n";
+                textOutputElement.textContent +="User wins.\n";
                 userScore++;
                 break;
             case "PAPER":
-                textOutputElement +="Draw! Both players picked paper.\n";
+                textOutputElement.textContent +="Draw! Both players picked paper.\n";
                 break;
             case "SCISSORS":
-                textOutputElement +="Computer wins!\n";
+                textOutputElement.textContent +="Computer wins.\n";
                 computerScore++;
                 break;
             default:
@@ -82,15 +91,15 @@ function playRound(playerSelection) {
     } else {
         switch (computerChoice) {
             case "ROCK":
-                textOutputElement +="Computer wins!\n";
+                textOutputElement.textContent +="Computer wins.\r\n";
                 computerScore++;
                 break;
             case "PAPER":
-                textOutputElement +="User wins!\n";
+                textOutputElement.textContent +="User wins.\r\n";
                 userScore++;
                 break;
             case "SCISSORS":
-                textOutputElement +="Draw! Both players picked scissors.\n";
+                textOutputElement.textContent +="Draw! Both players picked scissors.\r\n";
                 break;
             default:
         }
